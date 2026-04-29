@@ -21,7 +21,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
  
-COPY main.py.
+COPY main.py .
 
 # Railway يستخدم متغير بيئة PORT بشكل ديناميكي
 ENV PORT=8000
