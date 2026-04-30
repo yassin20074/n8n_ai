@@ -7,13 +7,11 @@ from PIL import Image
 import io
 from langchain_huggingface import HuggingFaceEndpoint
 
-# إعداد قارئ النصوص للعربية والإنجليزية
-# ملاحظة: سيقوم Railway بتحميل الموديلات عند أول تشغيل
+  
 reader = easyocr.Reader(['ar', 'en'])
 
 app = FastAPI()
-
-# الحصول على التوكن من متغيرات البيئة (للأمان)
+   
 hf_token ="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"
 
 @app.get("/")
@@ -50,5 +48,5 @@ async def process_invoice(file: UploadFile = File(...)):
         return {"error": "Parsing error", "raw": ai_response}
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 8080)) 
     uvicorn.run(app, host="0.0.0.0", port=port)
